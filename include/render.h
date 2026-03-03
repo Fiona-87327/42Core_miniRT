@@ -6,7 +6,7 @@
 /*   By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 14:53:21 by mhnatovs          #+#    #+#             */
-/*   Updated: 2026/03/03 20:31:02 by jiyan            ###   ########.fr       */
+/*   Updated: 2026/03/03 20:42:59 by jiyan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ uint32_t		color_to_int(t_color color);
 t_color			apply_ambient(t_color obj_color, t_ambient ambient);
 t_color			apply_diffuse(t_hit hit, t_light light);
 int				in_shadow(t_hit hit, t_scene scene);
-t_color			calc_color(t_hit hit, t_scene scene);
+t_color			calc_color(t_hit hit, t_scene scene, t_vector view_dir);
 
 #endif

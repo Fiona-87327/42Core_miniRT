@@ -6,7 +6,7 @@
 /*   By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 13:29:52 by mhnatovs          #+#    #+#             */
-/*   Updated: 2026/03/03 20:28:39 by jiyan            ###   ########.fr       */
+/*   Updated: 2026/03/03 20:38:45 by jiyan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ uint32_t	get_pixel_color(t_scene scene, t_viewport vp, t_point p)
 	ray = generate_ray(scene.camera, vp, p.x, p.y);
 	hit = trace_ray(ray, scene);
 	if (hit.t > 0)
-		color = color_to_int(calc_color(hit, scene));
+		color = color_to_int(calc_color(hit, scene, ray.direction));
 	else
 		color = 0x000000FF;
 	return (color);
