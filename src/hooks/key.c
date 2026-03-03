@@ -6,7 +6,7 @@
 /*   By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 10:56:05 by jiyawang          #+#    #+#             */
-/*   Updated: 2026/03/03 19:21:08 by jiyan            ###   ########.fr       */
+/*   Updated: 2026/03/03 20:25:48 by jiyan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	re_render(t_context *ctx)
 	int	step;
 
 	step = 1;
-	if (ctx->needs_rerender) // If pending high-res render from interaction
+	if (ctx->needs_rerender)
 		step = 4;
 	render_scene(ctx->img, ctx->scene, step);
 }
