@@ -9,7 +9,7 @@ uint32_t	get_pixel_color(t_scene scene, t_viewport vp, t_point p)
 
 	ray = generate_ray(scene.camera, vp, p.x, p.y);
 	hit = trace_ray(ray, scene);
-	if (hit.t > 0)
+	if (hit.t > 0.001f)
 		color = color_to_int(calc_color(hit, scene, ray.direction));
 	else
 		color = 0x000000FF;

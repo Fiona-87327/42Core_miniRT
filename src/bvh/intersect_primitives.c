@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intersect_primitives.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 10:47:15 by jiyawang          #+#    #+#             */
-/*   Updated: 2026/03/04 10:47:17 by jiyawang         ###   ########.fr       */
+/*   Updated: 2026/03/04 20:39:33 by jiyan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_hit	intersect_primitives(t_ray ray, t_list *primitives)
 	{
 		obj = (t_object *)curr->content;
 		t = intersect_object(ray, obj);
-		if (t > 0 && (hit.t < 0 || t < hit.t))
+		if (t > 0.001f && (hit.t < 0 || t < hit.t))
 		{
 			hit.t = t;
 			hit.obj = obj;
