@@ -30,11 +30,7 @@ void	parse_sphere(char **tokens, t_scene *scene)
 	object->type = OBJ_SPHERE;
 	object->color = sphere.color;
 	object->data.sphere = sphere;
-	if (!scene->objects)
-		scene->objects = ft_calloc(1, sizeof(t_bvh_node));
-	if (!scene->objects)
-		error_exit("Memory allocation failed.\n");
-	ft_lstadd_back(&scene->objects->primitives, ft_lstnew(object));
+	ft_lstadd_back(&scene->objects, ft_lstnew(object));
 }
 
 void	parse_plane(char **tokens, t_scene *scene)
@@ -58,11 +54,7 @@ void	parse_plane(char **tokens, t_scene *scene)
 	object->type = OBJ_PLANE;
 	object->color = plane.color;
 	object->data.plane = plane;
-	if (!scene->objects)
-		scene->objects = ft_calloc(1, sizeof(t_bvh_node));
-	if (!scene->objects)
-		error_exit("Memory allocation failed.\n");
-	ft_lstadd_back(&scene->objects->primitives, ft_lstnew(object));
+	ft_lstadd_back(&scene->objects, ft_lstnew(object));
 }
 
 // static void	validate_cylinder_params(t_cylinder cyl)
@@ -115,9 +107,5 @@ void	parse_cylinder(char **tokens, t_scene *scene)
 	object->type = OBJ_CYLINDER;
 	object->color = cyl.color;
 	object->data.cylinder = cyl;
-	if (!scene->objects)
-		scene->objects = ft_calloc(1, sizeof(t_bvh_node));
-	if (!scene->objects)
-		error_exit("Memory allocation failed.\n");
-	ft_lstadd_back(&scene->objects->primitives, ft_lstnew(object));
+	ft_lstadd_back(&scene->objects, ft_lstnew(object));
 }

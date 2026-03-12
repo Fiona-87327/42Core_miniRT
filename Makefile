@@ -25,14 +25,7 @@ SRCS = \
 	src/render/shadows.c \
 	src/hooks/key.c \
 	src/hooks/mouse_scroll.c \
-	src/utils/free_bvh.c \
-	src/bvh/aabb.c \
-	src/bvh/aabb_utils.c \
-	src/bvh/build.c \
-	src/bvh/build_utils.c \
-	src/bvh/build_utils_extra.c \
-	src/bvh/intersect_primitives.c \
-	src/bvh/traverse.c \
+	src/render/trace_ray.c \
 	src/utils/error_exit.c \
 	src/hooks/move_camera.c \
 	src/hooks/rotate_camera.c

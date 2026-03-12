@@ -33,7 +33,6 @@
 # include "parser.h"
 # include "render.h"
 # include "intersection.h"
-# include "bvh.h"
 
 typedef struct s_context
 {

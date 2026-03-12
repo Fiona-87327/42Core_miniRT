@@ -48,16 +48,16 @@ int	main(int argc, char **argv)
 	init_parser(argv[1], &ctx.scene);
 	ctx.mlx = mlx_init(WIDTH, HEIGHT, "miniRT", true);
 	if (!ctx.mlx)
-		return (free_bvh(ctx.scene.objects), 1);
+		return (ft_lstclear(&ctx.scene.objects, free), 1);
 	ctx.img = mlx_new_image(ctx.mlx, WIDTH, HEIGHT);
 	if (!ctx.img)
-		return (mlx_terminate(ctx.mlx), free_bvh(ctx.scene.objects), 1);
+		return (mlx_terminate(ctx.mlx), ft_lstclear(&ctx.scene.objects, free), 1);
 	render_scene(ctx.img, ctx.scene, 1);
 	mlx_image_to_window(ctx.mlx, ctx.img, 0, 0);
 	setup_hooks(&ctx);
 	mlx_loop(ctx.mlx);
 	mlx_delete_image(ctx.mlx, ctx.img);
 	mlx_terminate(ctx.mlx);
-	free_bvh(ctx.scene.objects);
+	ft_lstclear(&ctx.scene.objects, free);
 	return (0);
 }
