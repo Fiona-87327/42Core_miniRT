@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_objects.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhnatovs <mhnatovs@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 20:48:29 by jiyawang          #+#    #+#             */
-/*   Updated: 2026/03/05 11:55:28 by mhnatovs         ###   ########.fr       */
+/*   Updated: 2026/04/09 13:48:31 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,15 @@ void	parse_plane(char **tokens, t_scene *scene)
 	ft_lstadd_back(&scene->objects, ft_lstnew(object));
 }
 
-// static void	validate_cylinder_params(t_cylinder cyl)
-// {
-// 	if (cyl.dir.x < -1.0 || cyl.dir.x > 1.0 || cyl.dir.y < -1.0
-// 		|| cyl.dir.y > 1.0 || cyl.dir.z < -1.0 || cyl.dir.z > 1.0)
-// 		error_exit("Cylinder axis vector must be normalized");
-// 	if (cyl.radius <= 0)
-// 		error_exit("Cylinder diameter must be positive");
-// 	if (cyl.height <= 0)
-// 		error_exit("Cylinder height must be positive");
-// }
-
 static void	validate_cylinder_params(t_cylinder cyl)
 {
+	if (cyl.dir.x < -1.0 || cyl.dir.x > 1.0 || cyl.dir.y < -1.0
+		|| cyl.dir.y > 1.0 || cyl.dir.z < -1.0 || cyl.dir.z > 1.0)
+		error_exit("Cylinder axis vector must be normalized");
 	if (cyl.radius <= 0)
-		error_exit("Cylinder diameter must be positive.\n");
+		error_exit("Cylinder diameter must be positive");
 	if (cyl.height <= 0)
-		error_exit("Cylinder height must be positive.\n");
+		error_exit("Cylinder height must be positive");
 }
 
 static t_cylinder	create_cylinder(char **tokens)
