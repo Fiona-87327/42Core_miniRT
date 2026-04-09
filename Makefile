@@ -42,7 +42,6 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 MLX42_DIR = MLX42
 MLX42_LIB = $(MLX42_DIR)/build/libmlx42.a
-
 MLX42_FLAGS = -ldl -lglfw -pthread -lm
 
 # ================= INCLUDES ==============
