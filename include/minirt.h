@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhnatovs <mhnatovs@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 13:03:37 by mhnatovs          #+#    #+#             */
-/*   Updated: 2026/04/10 12:14:26 by mhnatovs         ###   ########.fr       */
+/*   Updated: 2026/04/13 15:55:37 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
-
 # define WIDTH 800
 # define HEIGHT 600
 
@@ -26,7 +25,6 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
-
 # include "../libft/libft.h"
 # include "MLX42/MLX42.h"
 # include "vector.h"

@@ -6,7 +6,7 @@
 /*   By: mhnatovs <mhnatovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:06:41 by mhnatovs          #+#    #+#             */
-/*   Updated: 2026/04/10 12:14:54 by mhnatovs         ###   ########.fr       */
+/*   Updated: 2026/04/13 16:20:37 by mhnatovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ static void	left_right_movement(t_context *cont, float speed)
 
 static void	vertical_movement(t_context *cont, float speed)
 {
+	t_viewport	vp;
 	t_vector	move;
 
-	move = (t_vector){0, speed, 0};
+	vp = init_viewport(cont->scene.camera);
+	move = vector_scale(vp.up, speed);
 	cont->scene.camera.pos = vector_add(cont->scene.camera.pos, move);
 	re_render(cont);
 }

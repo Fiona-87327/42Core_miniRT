@@ -6,7 +6,7 @@
 /*   By: mhnatovs <mhnatovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 12:09:34 by mhnatovs          #+#    #+#             */
-/*   Updated: 2026/04/10 16:39:21 by mhnatovs         ###   ########.fr       */
+/*   Updated: 2026/04/14 13:50:15 by mhnatovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,4 @@ t_ray	generate_ray(t_camera cam, t_viewport v, int x, int y)
 	ray.direction = vector_normalize(ray.direction);
 	ray.origin = cam.pos;
 	return (ray);
-}
-
-t_hit	trace_ray_selection(t_ray ray, t_scene scene)
-{
-	return (trace_ray(ray, scene));
 }

@@ -97,4 +97,7 @@ re: fclean all
 v: $(NAME)
 	valgrind --leak-check=full --track-fds=yes ./$(NAME) scenes/test_sphere_orig.rt
 
+vs: $(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) scenes/test_sphere_orig.rt > valgrind_output.txt 2>&1
+
 .PHONY: all clean fclean re v vs vsmall

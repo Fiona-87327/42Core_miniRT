@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   trace_ray.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhnatovs <mhnatovs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/08 21:00:00 by jiyawang          #+#    #+#             */
-/*   Updated: 2026/03/08 21:00:00 by jiyawang         ###   ########.fr       */
+/*   Created: 2026/04/13 14:40:32 by mhnatovs          #+#    #+#             */
+/*   Updated: 2026/04/13 16:21:19 by mhnatovs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,19 @@ float	intersect_object(t_ray ray, t_object *obj)
 	return (-1);
 }
 
-void	hit_normal(t_object *obj, t_hit *hit)
+void	hit_normal(t_object *obj, t_hit *hit, t_ray ray)
 {
 	if (obj->type == OBJ_SPHERE)
 		hit->normal = get_normal_sphere(hit->point, obj->data.sphere);
 	if (obj->type == OBJ_PLANE)
-		hit->normal = get_normal_plane(obj->data.plane);
+		hit->normal = get_normal_plane(obj->data.plane, ray);
 	if (obj->type == OBJ_CYLINDER)
 		hit->normal = get_normal_cylinder(hit->point, obj->data.cylinder);
+}
+
+t_hit	trace_ray(t_ray ray, t_scene scene)
+{
+	return (intersect_primitives(ray, scene.objects));
 }
 
 t_hit	intersect_primitives(t_ray ray, t_list *primitives)
@@ -52,14 +57,9 @@ t_hit	intersect_primitives(t_ray ray, t_list *primitives)
 			hit.t = t;
 			hit.obj = obj;
 			hit.point = vector_add(ray.origin, vector_scale(ray.direction, t));
-			hit_normal(obj, &hit);
+			hit_normal(obj, &hit, ray);
 		}
 		curr = curr->next;
 	}
 	return (hit);
-}
-
-t_hit	trace_ray(t_ray ray, t_scene scene)
-{
-	return (intersect_primitives(ray, scene.objects));
 }
